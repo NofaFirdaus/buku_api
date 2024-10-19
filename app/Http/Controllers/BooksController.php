@@ -71,9 +71,9 @@ class BooksController extends Controller
     public function update(Request $request, books $books)
     {
         $rules = [
-            'judul' => ['required', 'min:4', 'max:100'],
-            'harga' => ['required', 'numeric', 'min:1000',],
-            'category_id' => ['required', 'numeric'],
+            'judul' => ['min:4', 'max:100'],
+            'harga' => ['numeric', 'min:1000',],
+            'category_id' => ['numeric'],
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
@@ -85,7 +85,7 @@ class BooksController extends Controller
 
         $validate = $validator->validated();
         try {
-            $data = Books::update($validate);
+            $data = $books->update($validate);
             return response()->json([
                 'message' => 'buku berhasil diupdate. ',
                 'data' => $data

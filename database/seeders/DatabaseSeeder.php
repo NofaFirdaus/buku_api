@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\BookCategory;
+use App\Models\Books;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,10 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Books::factory(100)->create();
 
-        BookCategory::factory()->create([
-            'category_name' => 'test',
-        ]);
+        // BookCategory::factory()->create([
+        //     'category_name' => 'test',
+        // ]);
     }
 }

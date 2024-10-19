@@ -16,8 +16,14 @@ class BooksFactory extends Factory
      */
     public function definition(): array
     {
+        $harga = rand(1000,10000);
+        $stok = rand(0,3);
         return [
-            //
+            'judul'=> fake()->sentence(),
+            'penulis'=> fake()->name(),
+            'harga'=>$harga,
+            'stok'=>$stok,
+            'category_id'=>1,
         ];
     }
 }

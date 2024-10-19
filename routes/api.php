@@ -8,4 +8,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/buku',[BooksController::class,'index']);
 Route::get('/buku/{books}',[BooksController::class,'show']);
 Route::post('/buku',[BooksController::class,'store']);
-Route::put('/buku',[BooksController::class,'store']);
+Route::put('/buku/{books}',[BooksController::class,'update']);
