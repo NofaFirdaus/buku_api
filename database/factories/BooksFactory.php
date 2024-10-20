@@ -18,12 +18,13 @@ class BooksFactory extends Factory
     {
         $harga = rand(1000,10000);
         $stok = rand(0,3);
+        $id = rand(1,3);
         return [
             'judul'=> fake()->sentence(),
             'penulis'=> fake()->name(),
             'harga'=>$harga,
             'stok'=>$stok,
-            'category_id'=>1,
+            'category_id'=>$id,
         ];
     }
 }

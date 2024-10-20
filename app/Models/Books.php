@@ -13,7 +13,7 @@ class Books extends Model
     protected $table = 'books';
     protected $fillable = ['judul','penulis','harga','stok','category_id'];
 
-    public function category() :BelongsTo{
-        return $this->belongsTo(BookCategory::class);
+    public function kategori() :BelongsTo{
+        return $this->belongsTo(BookCategory::class,'category_id','id');
     }
 }

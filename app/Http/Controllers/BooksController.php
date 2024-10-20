@@ -116,4 +116,29 @@ class BooksController extends Controller
         }
 
     }
+    public function search(Request $request)
+{
+    // dd('hello');
+    $request->validate([
+        'judul' => 'nullable|string',
+        'catrgory' => 'nullable|string',
+    ]);
+
+    $query = Books::with('kategori');
+
+    if ($request->has('judul')) {
+        $query->where('judul', 'like', '%' . $request->judul . '%');
+    }
+
+    if ($request->has('kategori')) {
+        $query->whereHas('kategori', function ($q) use ($request) {
+            $q->where('category_name', 'like', '%' . $request->kategori . '%');
+        });
+    }
+
+    $books = $query->get();
+
+    return response()->json($books, 200);
+}
+
 }

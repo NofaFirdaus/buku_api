@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
     {
         Books::factory(100)->create();
 
-        // BookCategory::factory()->create([
-        //     'category_name' => 'test',
+        // BookCategory::create([
+        //     'category_name' => 'ajsojao',
         // ]);
     }
 }
