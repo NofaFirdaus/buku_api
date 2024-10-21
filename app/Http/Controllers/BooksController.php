@@ -121,7 +121,7 @@ class BooksController extends Controller
     // dd('hello');
     $request->validate([
         'judul' => 'nullable|string',
-        'catrgory' => 'nullable|string',
+        'kategori' => 'nullable|string',
     ]);
 
     $query = Books::with('kategori');
